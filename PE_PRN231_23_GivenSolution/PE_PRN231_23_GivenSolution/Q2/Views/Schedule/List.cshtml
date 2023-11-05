@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Q2.Models.Schedule>
+
+@{
+    ViewData["Title"] = "Index";    
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form class="searchForm">
+    <input type="date" name="search" />
+    <input type="submit" value="Search"/>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ScheduleId
+            </th>
+            <th>
+                Room
+            </th>
+            <th>
+                TimeSlot
+            </th>
+            <th>
+                Movie
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeSlotId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>                
+            </tr>
+        }
+    </tbody>
+</table>
